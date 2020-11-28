@@ -72,6 +72,9 @@ tlbsim_resp_t tlbsim_access(tlbsim_req_t* req) {
     resp.ppn = search.ppn;
     resp.pte = search.pte;
     resp.granularity = 0;
+
+    // TODO Add diff-test here
+
     return resp;
 }
 
@@ -99,6 +102,8 @@ void tlbsim_flush(int hartid, int asid, uint64_t vpn) {
 
     config_itlbs[hartid]->flush_local(asid_new, vpn);
     config_dtlbs[hartid]->flush(asid_new, vpn);
+
+    // TODO Add flush dut here
 }
 
 
